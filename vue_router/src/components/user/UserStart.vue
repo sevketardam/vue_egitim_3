@@ -2,11 +2,12 @@
   <div class="container">
     <h3>User Start Component</h3>
     <hr>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium asperiores commodi, dicta doloribus earum
-      enim fugiat incidunt nemo, quisquam ratione sapiente sequi ullam, velit vitae voluptatem. A doloremque iste
-      veritatis.
-    </p>
+    <ul class="list-group">
+      <li class="list-group-item"> <router-link to="/user/12"> User 1</router-link></li>
+      <li class="list-group-item"> <router-link to="/user/15"> User 2</router-link></li>
+      <li class="list-group-item"> <router-link to="/user/18"> User 3</router-link></li>
+
+    </ul>
   </div>
 </template>
 <script>

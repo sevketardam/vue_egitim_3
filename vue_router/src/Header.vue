@@ -14,10 +14,15 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link exact to="/user/14" active-class="active" class="nav-link">
+                        <router-link to="/user" active-class="active" class="nav-link">
                             User
                         </router-link>
                     </li>
+                    <!-- <li class="nav-item">
+                        <router-link exact to="/user/2" active-class="active" class="nav-link">
+                            User 2
+                        </router-link>
+                    </li> -->
 
                 </ul>
 

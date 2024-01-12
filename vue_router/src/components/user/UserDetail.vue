@@ -3,17 +3,28 @@
     <h3>User Detail Component</h3>
     <hr>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, earum libero odit optio repellendus sed
-      soluta? Animi, atque blanditiis commodi consequatur distinctio dolorem eaque eos expedita, modi reprehenderit
-      repudiandae soluta.
+      Kullanıcını Id Bilgisi : {{ $route.params.id }}
     </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, earum libero odit optio repellendus sed
-      soluta? Animi, atque blanditiis commodi consequatur distinctio dolorem eaque eos expedita, modi reprehenderit
-      repudiandae soluta.
-    </p>
+    <router-link class="btn btn-sm btn-primary" :to="navigationLink">
+      Güncelle
+    </router-link>
   </div>
 </template>
 <script>
-  export default {}
+export default {
+  data() {
+    return {
+      navigationLink: {
+        name: 'userEdit',
+        params: { id: this.$route.params.id },
+        query: { name: 'sevket', lastname: 'mulazimoglu' },
+        hash:'#data'
+      }
+    }
+  },
+  beforeRouteEnter(to,from,next){
+      console.log("componenet seviyesinde kontrol")
+      next()
+  }
+}
 </script>
