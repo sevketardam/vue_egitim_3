@@ -1,18 +1,20 @@
 import { createStore } from 'vuex'
+import counter from './modules/counter'
+import * as mutations from './mutations'
+import * as getters from './getters'
+import * as actions from './actions'
 
 // Create a new store instance.
 export const store = createStore({
-  state () {
+  state() {
     return {
-      counter: 0
+      value: 10
     }
   },
-  getters:{
-    getDoubleCounter(state){
-        return state.counter * 2;
-    },
-    stringCounter(state){
-        return state.counter + " kez tıklandı"
-    }
+  getters,
+  mutations,
+  actions,
+  modules:{
+    counter
   }
 })
