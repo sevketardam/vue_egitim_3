@@ -6,23 +6,29 @@
             </span>
             <span class="navbar-text my-2 my-lg-0 mr-3">
                 <strong>Alış Tutarı : </strong>
-                <span class="badge badge-danger">34,56</span>
+                <span class="badge text-bg-danger">{{ $filters.currency(getTradeResult.purchase) }}</span>
             </span>
             <span class="navbar-text my-2 my-lg-0 mr-3">
                 <strong>Satış Tutarı : </strong>
-                <span class="badge badge-success">34,56</span>
+                <span class="badge text-bg-success">{{ $filters.currency(getTradeResult.sale) }}</span>
             </span>
             <span class="navbar-text my-2 my-lg-0">
                 <strong>Bakiye : </strong>
-                <span class="badge badge-primary">34,56</span>
+                <span class="badge text-bg-primary">{{ $filters.currency(getTradeResult.balance) }}</span>
             </span>
         </div>
     </nav>
 </template>
 
 <script>
-export default {
 
+import { mapGetters } from 'vuex'
+export default {
+    computed:{
+        ...mapGetters([
+            "getTradeResult"
+        ])
+    },
 }
 </script>
 

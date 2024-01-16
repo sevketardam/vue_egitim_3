@@ -21,6 +21,11 @@ const router = createRouter({
 
 var app = createApp(App)
 
+app.config.globalProperties.$filters = {
+    currency(value) {
+        return parseFloat(value).toLocaleString(undefined, { minimumFractionDigits: 2 } + " TL")
+    }
+}
 
 app.config.globalProperties.$axios = axios
 
