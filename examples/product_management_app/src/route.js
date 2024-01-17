@@ -1,8 +1,8 @@
 import { defineAsyncComponent } from 'vue';
 
-const ProductPurchase = defineAsyncComponent(() => import("./components/products/ProductPurchase.vue"));
-const ProductSell = defineAsyncComponent(() => import("./components/products/ProductSell.vue"));
-const ProductList = defineAsyncComponent(() => import("./components/products/ProductList.vue"));
+const ProductPurchase = () => import("./components/products/ProductPurchase.vue")
+const ProductSell = () => import("./components/products/ProductSell.vue");
+const ProductList = () => import("./components/products/ProductList.vue");
 
 const routes = [
     { path: '/', component: ProductList },

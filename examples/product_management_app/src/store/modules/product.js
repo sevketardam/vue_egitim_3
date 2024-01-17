@@ -1,4 +1,5 @@
 import axios from "axios";
+import routes from '../../route.js'
 
 const state = {
     products: []
@@ -38,6 +39,8 @@ const actions = {
                     count: product.count
                 }
                 dispatch("setTradeResult", tradeResult)
+                routes.replace({ path: '/' })
+
             });
     },
     sellProducts({ commit }, payload) {

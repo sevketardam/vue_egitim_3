@@ -25,7 +25,7 @@
                             placeholder="Ürüne ait bir açıklama giriniz..." class="form-control"></textarea>
                     </div>
                     <hr>
-                    <button class="btn btn-primary" @click="saveProduct">Kaydet</button>
+                    <button class="btn btn-primary" :disabled="saveEnabled" @click="saveProduct">Kaydet</button>
                 </div>
             </div>
         </div>
@@ -48,6 +48,26 @@ export default {
         saveProduct() {
             // this.product = new this.product;
             this.$store.dispatch("saveProduct", { ...this.product })
+        },
+    },
+    computed: {
+        saveEnabled() {
+            if (this.product.count > 0 && this.product.title.length > 0 && this.product.price > 0 && this.product.description.length > 0) {
+                return false;
+            }
+            return true;
+        }
+    },
+    beforeRouteLeave(to, from, next) {
+        console.log("test")
+        if (this.product.count > 0 || this.product.title.length > 0 || this.product.price > 0 || this.product.description.length > 0) {
+            if (confirm("Kaydedilmemiş değişiklikleriniz var yinede ayrılma istiyor musunz?")) {
+                next()
+            } else {
+                next(false)
+            }
+        } else {
+            next()
         }
     }
 
