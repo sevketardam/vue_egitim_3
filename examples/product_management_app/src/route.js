@@ -1,4 +1,4 @@
-import { defineAsyncComponent } from 'vue';
+import { createRouter, createWebHistory } from 'vue-router'
 
 const ProductPurchase = () => import("./components/products/ProductPurchase.vue")
 const ProductSell = () => import("./components/products/ProductSell.vue");
@@ -11,4 +11,9 @@ const routes = [
     { path: '/:pathMatch(.*)*', redirect: "/" },
 ];
 
-export default routes;
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+})
+
+export default router;

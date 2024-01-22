@@ -6,7 +6,9 @@ import AppFooter from './components/shared/footer.vue'
 <template>
     <div>
         <app-header></app-header>
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
         <app-footer></app-footer>
     </div>
 </template>
@@ -14,10 +16,35 @@ import AppFooter from './components/shared/footer.vue'
 <script>
 export default {
     components: { AppHeader, AppFooter },
-    created(){
+    created() {
         this.$store.dispatch("getTradeResult")
+        this.$store.dispatch("initApp")
     }
 }
 </script>
 
-<style></style>
+<style>
+
+body{
+    background-color: blueviolet !important;
+}
+
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: opacity 1s ease-out;
+}
+
+.fade-enter-to {
+  /* opacity: 1; */
+}
+
+.fade-leave-active {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+
+</style>

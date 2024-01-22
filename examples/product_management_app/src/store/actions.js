@@ -10,10 +10,7 @@ export const setTradeResult = ({ state, commit }, tradeResult) => {
 
     axios.put("trade-result.json", tradeData)
         .then(response => {
-            console.log(response)
-            console.log(state.purchase)
-            console.log(state.sale)
-            console.log(state.balance)
+
         })
 }
 
@@ -21,7 +18,6 @@ export const setTradeResult = ({ state, commit }, tradeResult) => {
 
 export const getTradeResult = ({ commit }) => {
     axios.get("trade-result.json").then(response => {
-
         response.data.count = 1;
         commit("updateTradeResult",response.data)
     })

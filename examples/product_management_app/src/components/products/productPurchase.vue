@@ -1,5 +1,11 @@
 <template>
     <div class="container">
+        <div class="loading" :style="isLoading">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-6 offset-3 pt-3 card mt-5 shadow">
                 <div class="card-body">
@@ -29,6 +35,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -40,13 +48,15 @@ export default {
                 title: "",
                 count: null,
                 price: null,
-                description: ""
-            }
+                description: "",
+            },
+            saveButtonClick: false
         }
     },
     methods: {
         saveProduct() {
             // this.product = new this.product;
+            this.saveButtonClick = true;
             this.$store.dispatch("saveProduct", { ...this.product })
         },
     },
@@ -56,11 +66,22 @@ export default {
                 return false;
             }
             return true;
+        },
+        isLoading() {
+            if (this.saveButtonClick) {
+                return {
+                    display: "block"
+                }
+            } else {
+                return {
+                    display: "none"
+                }
+            }
         }
     },
     beforeRouteLeave(to, from, next) {
         console.log("test")
-        if (this.product.count > 0 || this.product.title.length > 0 || this.product.price > 0 || this.product.description.length > 0) {
+        if ((this.product.count > 0 || this.product.title.length > 0 || this.product.price > 0 || this.product.description.length > 0) && !this.saveButtonClick) {
             if (confirm("Kaydedilmemiş değişiklikleriniz var yinede ayrılma istiyor musunz?")) {
                 next()
             } else {

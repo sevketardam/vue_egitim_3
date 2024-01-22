@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar fixed-bottom  navbar-light" style="background-color: #e3f2fd;">
+    <nav class="navbar fixed-bottom  navbar-light" style="background-color: #bd91e5;">
         <div class="container">
             <span class="navbar-text mr-auto">
-                <strong>vuejsegitim.com</strong> | Şevket Arda
+                <strong><a href="https://github.com/sevketardam">github/sevketardam</a></strong> | Şevket Arda
             </span>
             <span class="navbar-text my-2 my-lg-0 mr-3">
                 <strong>Alış Tutarı : </strong>
