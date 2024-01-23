@@ -1,16 +1,16 @@
 <script setup>
+import AppTags from './components/Tags.vue'
 
 </script>
 
 <template>
-  <div class="tag-container">
-    <span class="tag" v-for="tag in tags" :key="tag">
-      <span class="content">{{ tag }}</span>
-      <span class="close ms-2">X</span>
-    </span>
-
-    <input type="text" @keydown.enter="addTag">
-    <div class="error" v-if="error">Bu Etiket Daha Önceden Eklenmiş!</div>
+  <div>
+    <app-tags v-model="tags" color="success"></app-tags>
+    <app-tags v-model="tags2" color="danger"></app-tags>
+    <app-tags v-model="tags2" color="info"></app-tags>
+    <app-tags v-model="tags2" color="primary"></app-tags>
+    <app-tags v-model="tags2" color="warning"></app-tags>
+    <app-tags v-model="tags2" color="secondary"></app-tags>
   </div>
 </template>
 
@@ -18,37 +18,10 @@
 export default {
   data() {
     return {
-      tags: ["deneme", "test"],
-      error: false
+      tags: "deneme,test",
+      tags2: "deneme,test"
     }
   },
-  methods: {
-    addTag(event) {
-      let text = event.target.value;
-      let matchedTag = false;
-      if (text.length <= 0) return;
-
-      this.tags.forEach(tag => {
-        if (tag.toLowerCase() == text.toLowerCase()) {
-          matchedTag = true
-
-        }
-      });
-
-      if (matchedTag) {
-        this.error = true;
-        setTimeout(() => {
-          this.error = false;
-        }, 2000)
-        return;
-      }
-
-      this.tags.push(text)
-      event.target.value = "";
-      this.error = false;
-
-    }
-  }
 }
 
 </script>
@@ -56,37 +29,5 @@ export default {
 <style scoped>
 body {
   font-family: sans-serif;
-}
-
-.tag-container {
-  border: 1px solid #ccc;
-  padding: 20px
-}
-
-.tag {
-  background: #fbbd08;
-  padding: 10px;
-  color: #000;
-  cursor: default;
-  font-size: 14px;
-  margin-right: 4px;
-}
-
-.tag .close {
-  font-size: 12px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-input {
-  outline: none;
-  height: 100%;
-  width: 100px;
-}
-
-.error {
-  font-size: 12px;
-  color: red;
-  margin-top: 10px;
 }
 </style>

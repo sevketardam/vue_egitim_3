@@ -1,0 +1,14 @@
+{
+  "name": "vuejs-egitim-tag-component-sevket",
+  "version": "1.0.1",
+  "description": "Şevket Arda Mülazimoğlu Tarafından Vue.js Eğitimi için Hazırlanan Tag component çalışmasıdır",
+  "main": "Tags.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vuejs,sevketardam,vue.js egitim,tag component"
+  ],
+  "author": "sevketardam | Şevket Arda Mülazimoğlu arda2002@windowslive.com",
+  "license": "ISC"
+}
